@@ -1,6 +1,6 @@
 
 # ROS IN 5 DAYS 
-Unit 1: Basic Concepts
+## Unit 1: Basic Concepts
 
 
 Estimated time to completion: 1'5 hours 
@@ -39,8 +39,8 @@ roslaunch turtlebot_teleop keyboard_teleop.launch
 roslaunch turtlebot_teleop keyboard_teleop.launch
 WebShell #1 Output
 
-# Control Your Turtlebot!
----------------------------
+## Control Your Turtlebot!
+
 Moving around:
    u    i    o
    j    k    l
@@ -84,7 +84,8 @@ As you can see, that command has two parameters: the first one is the name of th
 END Example 1.1
 
 
-Now... what's a package?
+## Now... what's a package?
+
 ROS uses packages to organize its programs. You can think of a package as all the files that a specific ROS program contains; all its cpp files, python files, configuration files, compilation files, launch files, and parameters files.
 All those files in the package are organized with the following structure:
 
@@ -117,7 +118,7 @@ Packages are the main organization system of ROS programs.
 END Example 1.2
 
 
-And... what's a launch file?
+## And... what's a launch file?
 We've seen that ROS uses launch files in order to execute programs. But... how do they work? Let's have a look.
 
 Example 1.3
@@ -132,7 +133,7 @@ roscd turtlebot_teleop
 cd launch
 cat keyboard_teleop_cpp.launch
 WebShell #1 Output
-
+~~~
 <launch>
   <!-- turtlebot_teleop_key already has its own built in velocity smoother -->
   <node pkg="turtlebot_teleop" type="turtlebot_teleop_key" name="turtlebot_teleop_keyboard"  output="screen">
@@ -141,6 +142,8 @@ WebShell #1 Output
     <remap from="turtlebot_teleop_keyboard/cmd_vel" to="cmd_vel_mux/input/teleop"/>
   </node>
 </launch>
+
+~~~
 In the launch file, you have some extra tags for setting parameters and remaps. For now, don't worry about those tags and focus on the node tag.
 All launch files are contained within a <launch> tag. Inside that tag, you can see a <node> tag, where we specify the following parameters:
 
@@ -162,7 +165,7 @@ Go to the catkin_ws in your webshell.
 
 In order to do this, type roscd in the shell. You'll see that you are thrown to a catkin_ws/devel directory. Since you want to go to the workspace, just type cd .. to move up 1 directory. You must end up here in the /home/user/catkin_ws.
 Execute in WebShell #1
-
+~~~
 roscd
 cd ..
 pwd
@@ -170,11 +173,11 @@ WebShell #1 Output
 
 user ~ $ pwd
 /home/user/catkin_ws
+~~~
 Inside this workspace, there is a directory called src. This folder will contain all the packages created. Every time you want to create a package, you have to be in this directory (catkin_ws/src).Type in your web shell cd src in order to move to the source directory.
 
 Execute in WebShell #1
-
-cd src
+>cd src
 Now we are ready to create our first package! In order to create a package, type in your webshell:
 
 Execute in WebShell #1
@@ -192,14 +195,14 @@ Example 1.5
 In order to check that our package has been created successfully, we can use some ROS commands related to packages. For example, let's type:
 
 Execute in WebShell #1
-
+~~~
 rospack list
 rospack list | grep my_package
 roscd my_package 
 rospack list: Gives you a list with all of the packages in your ROS system.
 rospack list | grep my_package: Filters, from all of the packages located in the ROS system, the package named my_package.
 roscd my_package: Takes you to the location in the Hard Drive of the package, named my_package. 
-
+~~~
 You can also see the package created and its contents by just opening it through the IDE (similar to {Figure 1.1})
 
 
@@ -207,7 +210,7 @@ Fig.1.1 - IDE created package my_package
 END Example 1.5
 
 
-Compile a package
+## Compile a package
 When you create a package, you will usually need to compile it in order to make it work. The command used by ROS to compile is the next one:
 
 catkin_make
@@ -239,17 +242,13 @@ At this point, you should have your first package created... but now you need to
 
 Example 1.7
 
-1- Create in the src directory in my_package a C++ file that will be executed. For this exercise, just copy this simple C++ code simple.cpp. You can create it directly by RIGHT clicking on the IDE on the src directory of your package, selecting New File, and writing the name of the file on the box that will appear.
+-1- Create in the src directory in my_package a C++ file that will be executed. For this exercise, just copy this simple C++ code simple.cpp. You can create it directly by RIGHT clicking on the IDE on the src directory of your package, selecting New File, and writing the name of the file on the box that will appear.
 
 
 
 A new Tab should have appeared on the IDE with empty content. Then, copy the content of simple.cpp into the new file. Finally, press Ctrl-S to save your file with the changes. The Tab in the IDE will go from Green to no color (see pictures below).
 
-
-
-
-
-2- Create a launch directory inside the package named my_package {Example 1.4}.
+- 2- Create a launch directory inside the package named my_package {Example 1.4}.
 
 Execute in WebShell #1
 
@@ -257,7 +256,7 @@ roscd my_package
 mkdir launch
 You can also create it through the IDE.
 
-3- Create a new launch file inside the launch directory.
+- 3- Create a new launch file inside the launch directory.
 
 Execute in WebShell #1
 
@@ -276,12 +275,13 @@ Note: This is something that is required when working in ROS with C++. When you 
 
 In the Build section of your CMakeLists.txt file, add the following lines:
 
+~~~
 add_executable(simple src/simple.cpp)
 add_dependencies(simple ${simple_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(simple
    ${catkin_LIBRARIES}
  )
-
+~~~
 
 HINT: If you have a look at the file, you'll see that those lines are already in the file, but they are commented. If you feel so, you can uncomment those lines and modify them like the ones we provide above, instead of simply adding them to the end of the section.
 
