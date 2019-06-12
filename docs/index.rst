@@ -8,36 +8,26 @@
 Welcome to abner's documentation!
 ================================
 
-.. toctree::
-   :maxdepth: 2
-..    :caption: Contents:
 
-   hello
-
-这里是左侧分类1
+ROS Notes
 ===================
 
-小分类1
+ros Robot_Ignite
 -------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   hello
+   doc/Robot_Ignite
 
 
+ros basic knowledge
+-------------
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
-   hello
+   doc/ros
 
-这里是左侧分类2
-===================
-
-.. toctree::
-   :maxdepth: 1
-
-   hello
 
 文档协作简单教程
 ===================
