@@ -28,6 +28,13 @@ ros basic knowledge
 
    doc/ros
 
+OPENCV
+============
+
+.. toctree::
+    :maxdepth:4
+
+    doc/opencv
 
 文档协作简单教程
 ===================
