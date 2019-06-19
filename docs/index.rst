@@ -12,21 +12,21 @@ Welcome to abner's documentation!
 ROS Notes
 ===================
 
-ros Robot_Ignite
--------------
+.. ros Robot_Ignite
+.. -------------
 
-.. toctree::
-   :maxdepth: 3
+.. .. toctree::
+..    :maxdepth: 3
 
-   doc/Robot_Ignite
+..    doc/Robot_Ignite
 
 
-ros basic knowledge
--------------
-.. toctree::
-   :maxdepth: 3
+.. ros basic knowledge
+.. -------------
+.. .. toctree::
+..    :maxdepth: 3
 
-   doc/ros
+..    doc/ros
 
 ros wiki
 ------------
