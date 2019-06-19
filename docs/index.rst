@@ -28,6 +28,14 @@ ros basic knowledge
 
    doc/ros
 
+ros wiki
+------------
+
+.. toctree::
+    :maxdepth: 4
+
+    doc/ros_core
+
 OPENCV
 ============
 
